@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">詳細画面</h1>
+    <p class="lead">Todoの詳細です。</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="alert alert-{{object.priority}}" role="alert">
+        <h4 class="alert-heading">タイトル : {{ object.title }}</h4>
+        <p>中身 : {{ object.memo }}</p>
+        <hr>
+        <p class="mb-0">期日 : {{ object.duedate }}</p>
+    </div>
+</div>
+    {% for item in object_list %}
+    {% endfor %}
+{% endblock contents %}

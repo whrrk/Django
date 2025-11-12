@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<form action="" method="post">{% csrf_token %}
+    {{ form.title.label }}: {{ form.title }}<br>
+    {{ form.memo.label }}: {{ form.memo }}<br>
+    {{ form.priority.label }}: {{ form.priority }}<br>
+    {{ form.duedate.label }}: {{ form.duedate }}<br>
+    <input type="submit" value="アップデートします">
+</form>
+
+{% endblock contents %}
