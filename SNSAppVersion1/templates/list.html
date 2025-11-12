@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+    <div class="alert alert-primary" role="alert">
+       社内SNS 
+    </div>
+{% endblock header %}
+
+{% block contents %}
+    {% for item in sns_list %}
+        <div class="alert alert-success" role="alert">
+            <p>タイトル: {{item.title}}</a></p>    
+            <p>投稿者: {{item.author}}</p>    
+            <p>内容: {{item.content}}</p>
+            <a href="{% url 'detail' item.pk %}" class="btn btn-primary btn" tabindex="-1" role="button" >詳細</a>
+            <a href="#" class="btn btn-info btn" tabindex="-1" role="button">いいね</a>
+        </div>
+    {% endfor %}
+    <a href="{% url 'logout' %}" class="btn btn-danger btn" tabindex="-1" role="button">ログアウト</a>
+{% endblock contents %}
