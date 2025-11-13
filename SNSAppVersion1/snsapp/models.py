@@ -7,6 +7,6 @@ class SnsModel(models.Model):
     author = models.CharField(max_length=50)
     images = models.ImageField(upload_to='', blank=True, null=True)
     views = models.IntegerField(default=0)
-    readtext = models.BooleanField(default=False)
+    subscribe = models.BooleanField(default=False)
     good = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

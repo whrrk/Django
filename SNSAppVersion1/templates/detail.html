@@ -11,12 +11,23 @@
 
 {% block contents %}
     <div class="alert alert-success" role="alert">
-        <p>タイトル: {{sns_item.title}}</p>    
         <p>投稿者: {{sns_item.author}}</p>    
-        <p><img src="{{sns_item.images.url}}" width="300"/></p>
-        <a href="#" class="btn btn-info btn" tabindex="-1" role="button">いいね</a>
-        <a href="#" class="btn btn-info btn" tabindex="-1" role="button">既読</a>
-
+        <p>
+            {% if sns_item.images %}
+            <img src="{{sns_item.images.url}}" width="300"/>
+            {% else %}
+            <img src="#" width="300"/>
+            {% endif %}
+        </p>
+        <a href="{% url 'good' sns_item.pk %}" class="btn btn-info btn good" tabindex="-1" role="button">いいね {{sns_item.good}}</a>
+        <a href="{% url 'subscribe' sns_item.pk %}" class="btn btn-info btn subscribe" tabindex="-1" role="button">
+            {% if sns_item.subscribe %}
+            既読
+            {% else %}
+            未読
+            {% endif %}
+        </a>
     </div>
+    <a href="{% url 'list' %}" class="btn btn-primary btn" tabindex="-1" role="button" >List</a>
     <a href="{% url 'logout' %}" class="btn btn-danger btn" tabindex="-1" role="button">ログアウト</a>
 {% endblock contents %}

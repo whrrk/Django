@@ -16,8 +16,16 @@
             <p>投稿者: {{item.author}}</p>    
             <p>内容: {{item.content}}</p>
             <a href="{% url 'detail' item.pk %}" class="btn btn-primary btn" tabindex="-1" role="button" >詳細</a>
-            <a href="#" class="btn btn-info btn" tabindex="-1" role="button">いいね</a>
+            <a href="{% url 'good' item.pk %}" class="btn btn-info btn good" tabindex="-1" role="button" data-id={{item.pk}}>いいね {{item.good}}</a>
+            <a href="{% url 'subscribe' item.pk %}" class="btn btn-info btn subscribe" tabindex="-1" role="button">
+                {% if item.subscribe %}
+                既読
+                {% else %}
+                未読
+                {% endif %}
+            </a>
         </div>
     {% endfor %}
+    <a href="{% url 'create' %}" class="btn btn-outline-primary btn" tabindex="-1" role="button">Create</a>
     <a href="{% url 'logout' %}" class="btn btn-danger btn" tabindex="-1" role="button">ログアウト</a>
 {% endblock contents %}
