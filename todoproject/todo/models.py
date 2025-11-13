@@ -10,6 +10,8 @@ class TodoModel(models.Model):
         max_length=10,
         choices=PRIORITY,
     )
+
     duedate = models.DateTimeField()
+    
     def __str__(self):
         return self.title
