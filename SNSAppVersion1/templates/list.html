@@ -4,9 +4,16 @@
 {% endblock customcss %}
 
 {% block header %}
-    <div class="alert alert-primary" role="alert">
-       社内SNS 
+    <div style="display:flex" class="alert alert-primary"  role="alert">
+        <div style="flex: auto">社内SNS</div> 
+        <div style="flex: right; margin-right: 10px">
+            <a href="{% url 'create' %}" class="btn btn-outline-primary btn" tabindex="-1" role="button">投稿する</a>
+        </div>
+        <div style="flex: right">
+            <a href="{% url 'logout' %}" class="btn btn-danger btn" tabindex="-1" role="button">ログアウト</a>
+        </div>
     </div>
+    
 {% endblock header %}
 
 {% block contents %}
@@ -26,6 +33,5 @@
             </a>
         </div>
     {% endfor %}
-    <a href="{% url 'create' %}" class="btn btn-outline-primary btn" tabindex="-1" role="button">Create</a>
-    <a href="{% url 'logout' %}" class="btn btn-danger btn" tabindex="-1" role="button">ログアウト</a>
+    
 {% endblock contents %}

@@ -7,10 +7,10 @@
     <p class="lead">Todolistを作って毎日を効率的に過ごしましょう</p>
   </div>
 </div>
-<p><a href="{% url 'create' %}" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">新規作成</a></p>
 {% endblock %}
 {% block contents %}
 <div class="container">
+  <p><a href="{% url 'create' %}" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">新規作成</a></p>
     {% for item in object_list %}
         <div class="alert alert-{{item.priority}}" role="alert">
             <p>{{ item.title}}, 期日 : {{ item.duedate }}  </p> 
